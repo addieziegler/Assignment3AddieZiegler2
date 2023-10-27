@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Assignment3AddieZiegler.Models;
 
 namespace Assignment3AddieZiegler.Data
 {
@@ -9,5 +10,8 @@ namespace Assignment3AddieZiegler.Data
             : base(options)
         {
         }
+        public DbSet<Assignment3AddieZiegler.Models.Movie>? Movie { get; set; }
+        public DbSet<Assignment3AddieZiegler.Models.Actor>? Actor { get; set; }
+
     }
 }

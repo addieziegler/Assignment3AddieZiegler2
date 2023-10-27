@@ -1,0 +1,89 @@
+﻿@model Assignment3AddieZiegler.Models.RedditPostVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Actor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor.Gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor.IMBDUrl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.IMBDUrl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actor.Photo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Photo)
+        </dd>
+    </dl>
+</div>
+<h1>Reddit Results</h1>
+<h4>
+    @Html.DisplayFor(model => model.Sentiment)
+</h4>
+<table class="redditResults" id="DataTable"
+<thead>
+<tr>
+<th>
+                Post
+</th>
+<th>
+                Compound Score
+</th>
+<th>
+                Percent Score
+</th>
+<th>
+                Sentiment
+</th>
+</tr>
+</thead>
+<tbody>
+        @foreach (var item in Model.RedditResults)
+        {
+    <tr>
+    <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+    </td>
+    <td>
+                    @Html.DisplayFor(modelItem => item.CompoundScore)
+    </td>
+    <td>
+                    @Html.DisplayFor(modelItem => item.PercentScore)
+    </td>
+    <td>
+                    @Html.DisplayFor(modelItem => item.Sentiment)
+    </td>
+    </tr>
+        }
+</tbody>
+</table>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Actor.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
