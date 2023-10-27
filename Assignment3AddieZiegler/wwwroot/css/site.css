@@ -1,4 +1,23 @@
-html {
+body {
+    background-image: url('https://media.istockphoto.com/id/1178841567/vector/film-strip-on-grey-brick-wall-background-in-cinematic-style-on-brick-wall-old-cinema.jpg?s=612x612&w=0&k=20&c=XIkgVY0_Oxqkn-XY2B4aoFvBjX_sdAKb9vJ1kOiBCC4=');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+font-size: 15px;
+font-weight: 400;
+line-height: 1.5;
+color: #212529;
+}
+
+#myHeader {
+    background-color: #000;
+    color: #ffd700;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 36px; 
+    cursor: pointer; 
+}html {
   font-size: 14px;
 }
 

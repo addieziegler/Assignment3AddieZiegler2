@@ -1,4 +1,4 @@
-﻿@model Assignment3AddieZiegler.Models.Movie
+﻿@model Assignment3AddieZiegler.Models.RedditPostVM
 
 @{
     ViewData["Title"] = "Details";
@@ -11,38 +11,79 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Movie.Title)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.Movie.Title)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IMDBUrl)
+            @Html.DisplayNameFor(model => model.Movie.IMDBUrl)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IMDBUrl)
+            @Html.DisplayFor(model => model.Movie.IMDBUrl)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
+            @Html.DisplayNameFor(model => model.Movie.Genre)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
+            @Html.DisplayFor(model => model.Movie.Genre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.YearOfRelease)
+            @Html.DisplayNameFor(model => model.Movie.YearOfRelease)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.YearOfRelease)
+            @Html.DisplayFor(model => model.Movie.YearOfRelease)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Poster)
+            @Html.DisplayNameFor(model => model.Movie.Poster)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Poster)
+            @Html.DisplayFor(model => model.Movie.Poster)
         </dd>
     </dl>
 </div>
+<h1>Reddit Results</h1>
+<h4>
+    @Html.DisplayFor(model => model.Sentiment)
+</h4>
+<table class="redditResults" id="DataTable"
+<thead>
+<tr>
+<th>
+                Post
+</th>
+<th>
+                Compound Score
+</th>
+<th>
+                Percent Score
+</th>
+<th>
+                Sentiment
+</th>
+</tr>
+</thead>
+<tbody>
+        @foreach (var item in Model.RedditResults)
+        {
+        <tr>
+        <td>
+                    @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+                    @Html.DisplayFor(modelItem => item.CompoundScore)
+        </td>
+        <td>
+                    @Html.DisplayFor(modelItem => item.PercentScore)
+        </td>
+        <td>
+                    @Html.DisplayFor(modelItem => item.Sentiment)
+        </td>
+        </tr>
+        }
+</tbody>
+</table>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model?.Movie.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

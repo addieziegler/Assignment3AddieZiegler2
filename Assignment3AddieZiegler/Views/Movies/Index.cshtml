@@ -45,9 +45,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.YearOfRelease)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poster)
-            </td>
+                <td>
+                    @if (item.Poster != null && item.Poster.Length != 0)
+                    {
+                        <img height="150" width="200" src="@Url.Action("GetMoviePoster", "Movies", new{item.Id})" />
+                    }
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

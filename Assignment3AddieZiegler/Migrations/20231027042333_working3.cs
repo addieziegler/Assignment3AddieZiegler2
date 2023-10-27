@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Assignment3AddieZiegler.Migrations
 {
-    public partial class working : Migration
+    public partial class working3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -75,7 +75,8 @@ namespace Assignment3AddieZiegler.Migrations
                     IMDBUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     YearOfRelease = table.Column<int>(type: "int", nullable: false),
-                    Poster = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    IMBDUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Poster = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
